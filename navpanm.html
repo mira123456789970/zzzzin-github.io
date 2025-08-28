@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GORILLA ENERGY</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+    }
+    header {
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+    .logo {
+      color: #0f0;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .logo span {
+      color: white;
+    }
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #0f0;
+    }
+    .main-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 40px;
+      background-image: url(set.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .main-left {
+      max-width: 50%;
+    }
+    .main-left h1 {
+      font-size: 60px;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+    .main-left h1 span {
+      color: #00ff00;
+      display: block;
+    }
+    .main-left p {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
+    .buttons button {
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+    .buy-btn {
+      background: #00ff00;
+      color: black;
+    }
+    .buy-btn:hover {
+      background: white;
+      color: #000;
+    }
+    .info-btn {
+      background: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+    }
+    .info-btn:hover {
+      background: #00ff00;
+      color: #000;
+    }
+    .main-right {
+      text-align: center;
+    }
+    .main-right .can {
+      width: 230px;
+      height: 400px;
+      background: rgba(0,255,0,0.05);
+      border: 1px solid #00ff00;
+      border-radius: 40px;
+      position: relative;
+      animation: glow 2s infinite alternate;
+    }
+    .main-right .can img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #0f0; }
+      100% { box-shadow: 0 0 30px #0f0; }
+    }
+    .main-right h2 {
+      margin-top: 20px;
+      color: #00ff00;
+      font-size: 22px;
+    }
+    .main-right p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin: 60px 0 20px;
+    }
+    .section-title span {
+      color: #00ff00;
+    }
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 20px 40px;
+    }
+    .product-card {
+      background: #0a0a0a;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      width: 240px;
+      transition: 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #00ff00;
+    }
+    .product-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .product-card button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .green { background: #00ff00; color: black; }
+    .green:hover { background: white; }
+    .yellow { background: gold; color: black; }
+    .yellow:hover { background: white; }
+	.pink{ background:pink; color: black; }
+     .blue{background:#596ccd ; color: black; }
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 60px 40px;
+      flex-wrap: wrap;
+    }
+    .about img {
+      width: 200px;
+      animation: pulse 2s infinite;
+    }
+    .about-text {
+      max-width: 500px;
+    }
+    .about-text h2 {
+      color: #00ff00;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .about-text ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .about-text ul li {
+      margin-bottom: 10px;
+    }
+    .about-text ul li::before {
+      content: '✔';
+      color: #00ff00;
+      margin-right: 8px;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+	/* Отзывы */
+.reviews {
+  background: #0c0f1a;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.reviews h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.review-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  background: #161a2b;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 0 20px #00ff7f44;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px #00ff7f99;
+}
+.quote {
+  font-size: 4rem;
+  color: #00ff7f;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+.author {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.avatar.green {
+  background: #00ff7f;
+}
+.avatar.pink {
+  background: #ff007f;
+}
+
+	 * {
+      box-sizing: border-box;
+    }
+
+ 
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 32px;
+      margin-top: 40px;
+    }
+
+    h2 span {
+      color: #00ff66;
+      text-shadow: 0 0 8px #00ff66;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #bbb;
+      margin-bottom: 40px;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 40px;
+    }
+
+    .form-box, .info-box {
+      background-color: #11121b;
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.1);
+    }
+
+    .form-box input, .form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background-color: #1a1b25;
+      border: 1px solid #333;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 14px;
+      transition: border 0.3s;
+    }
+
+    .form-box input:focus, .form-box textarea:focus {
+      border-color: #00ff66;
+      outline: none;
+      box-shadow: 0 0 5px #00ff66;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00ff66;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff66;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .form-box button:hover {
+      background-color: #00cc55;
+      box-shadow: 0 0 20px #00ff66;
+    }
+
+    .form-box .note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+
+    .info-box h3 {
+      margin-top: 0;
+      font-size: 20px;
+      text-shadow: 0 0 5px #00ff66;
+    }
+
+    .info-box p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .info-box strong {
+      color: #fff;
+    }
+
+    .social-icons h4 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 22px;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #00ff66;
+      transform: scale(1.2);
+      text-shadow: 0 0 10px #00ff66;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #777;
+      background-color: #0a0a0f;
+      margin-top: 40px;
+    }
+
+    .footer .logo {
+      color: #00ff66;
+      font-weight: bold;
+      text-shadow: 0 0 8px #00ff66;
+    }
+
+    @media screen and (max-width: 768px) {
+      .form-box, .info-box {
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+	/* Состав Gorilla */
+.ingredients {
+  background: #0c0f1a;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.ingredients h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+
+.ingredient-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ingredient-card {
+  background: #161a2b;
+  border-radius: 12px;
+  width: 280px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 0 15px #00ff7f33;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ingredient-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px #00ff7f88;
+}
+.ingredient-card .icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #00ff7f;
+  animation: pulse 2s infinite;
+}
+.ingredient-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #00ff7f;
+}
+.ingredient-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* Анимация свечения и пульсации */
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #00ff7f; }
+  50% { text-shadow: 0 0 20px #00ff7f; }
+  100% { text-shadow: 0 0 5px #00ff7f; }
+}
+html{
+scroll-behavior:smooth;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><span>GORILLA</span> ENERGY</div>
+    <nav>
+      <a href="#products">Продукты</a>
+      <a href="#about">О нас</a>
+      <a href="#ingredients">Состав</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="main-section">
+    <div class="main-left">
+      <h1>РАСКРОЙ <span>ДИКУЮ</span><span>ЭНЕРГИЮ</span></h1>
+      <p>Энергетический напиток, который пробудит в тебе настоящую силу. Заряд энергии, когда это действительно нужно.</p>
+      <div class="buttons">
+        <button id="" class="buy-btn">КУПИТЬ СЕЙЧАС</button>
+        <button class="info-btn">УЗНАТЬ БОЛЬШЕ</button>
+      </div>
+    </div>
+    <div class="main-right">
+      <div class="can"><img src="gorill.png" alt="банка gorilla"></div>
+      <h2>GORILLA</h2>
+      <p>ENERGY</p>
+    </div>
+  </section>
+
+  <div class="section-title" id="products">НАШИ <span>ПРОДУКТЫ</span><br><small>Выбери свой заряд энергии</small></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="gt.png" alt="Классический вкус">
+      <h3>КЛАССИЧЕСКИЙ</h3>
+      <p>Оригинальный вкус с мощным зарядом энергии</p>
+      <button class="green">КУПИТЬ</button>
+    </div>
+    <div class="product-card">
+      <img src="app.png" alt="Тропический вкус">
+      <h3>ТРОПИЧЕСКИЙ</h3>
+      <p>Экзотический микс тропических фруктов</p>
+      <button class="yellow">КУПИТЬ</button>
+    </div>
+	  <div class="product-card">
+      <img src="bl.png" alt="Тропический вкус">
+      <h3>MANGO-COCOUNT</h3>
+      <p>Классическая формула, с которой всё началось. </p>
+      <button class="pink">КУПИТЬ</button>
+    </div>
+	  <div class="product-card">
+      <img src="drg.png" alt="Тропический вкус">
+      <h3>DRAGONFRAUIT</h3>
+      <p>Взрыв экзотических фруктов с электризующим зарядом энергии.</p>
+      <button class="blue">КУПИТЬ</button>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <img src="gorl.png" alt="Gorilla Icon" />
+    <div class="about-text">
+      <h2>GORILLA</h2>
+      <p>GORILLA Energy — это не просто энергетический напиток. Это философия силы, выносливости и мощи, заключенная в каждой банке.</p>
+      <p>Мы создали формулу, которая помогает раскрыть твой потенциал, когда это действительно необходимо. Будь то интенсивная тренировка, важная работа  — GORILLA всегда с тобой.</p>
+      <ul>
+        <li>Высокое качество</li>
+        <li>Натуральный кофеин</li>
+      </ul>
+    </div>
+  </section>
+<section style="padding: 60px 40px; background-color: #000; color: #fff; font-family: Arial, sans-serif;">
+<!-- Блок состава -->
+<section class="ingredients" id="ingredients">
+  <h2>СОСТАВ <span class="green">GORILLA</span></h2>
+  <p class="subtitle">Что делает нас особенными</p>
+  
+  <div class="ingredient-cards">
+    <div class="ingredient-card">
+      <div class="icon">⚡</div>
+      <h3>КОФЕИН</h3>
+      <p>Натуральный кофеин для мгновенного заряда энергии и повышения концентрации внимания.</p>
+    </div>
+    <div class="ingredient-card">
+      <div class="icon">🧊</div>
+      <h3>ТАУРИН</h3>
+      <p>Аминокислота, которая улучшает физическую выносливость и помогает бороться с усталостью.</p>
+    </div>
+	  <div class="ingredient-card">
+      <div class="icon">⚡</div>
+      <h3>ВИТАМИНЫ В</h3>
+      <p>Комплекс витаминов группы В для поддержки метаболизма и нервной системы</p>
+    </div>
+  </div>
+</section>
+
+<!-- Блок отзывов -->
+<section class="reviews">
+  <h2>ЧТО ГОВОРЯТ <span class="green">КЛИЕНТЫ</span></h2>
+  <p class="subtitle">Отзывы тех, кто уже попробовал GORILLA Energy</p>
+  <div class="review-cards">
+    <div class="card">
+      <div class="quote">“</div>
+      <p>GORILLA Energy помогает мне оставаться сосредоточенным во время длительных тренировок. Отличный вкус и никакого сахарного краша после!</p>
+      <div class="author">
+        <div class="avatar green">AK</div>
+        <div>
+          <strong>Адилет К.</strong><br>
+          <small>Профессиональный спортсмен</small>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="quote">“</div>
+      <p>Ягодный вкус просто бомба! Пью перед работой, когда нужно быть в тонусе весь день. Эффект держится долго, без резких скачков энергии.</p>
+      <div class="author">
+        <div class="avatar pink">СС</div>
+        <div>
+          <strong>Сыймык С.</strong><br>
+          <small>IT-специалист</small>
+        </div>
+      </div>
+    </div>
+	 <div class="card">
+      <div class="quote">“</div>
+      <p>Наконец-то нашел энергетик без сахара, который действительно работает и при этом вкусный! GORILLA Zero теперь всегда со мной в дороге.</p>
+      <div class="author">
+        <div class="avatar pink">ЖС</div>
+        <div>
+          <strong>Жалын С.</strong><br>
+          <small>Водитель-дальнобойщик</small>
+        </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Связаться с <span>нами</span></h2>
+  <p class="subtitle">Есть вопросы? Мы всегда на связи!</p>
+
+  <div class="contact-section">
+    <div class="form-box">
+      <form>
+        <label>Имя</label>
+        <input type="text" placeholder="Ваше имя" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Ваш email" required>
+
+        <label>Сообщение</label>
+        <textarea rows="5" placeholder="Ваше сообщение..." required></textarea>
+
+        <button type="submit">ОТПРАВИТЬ</button>
+        <p class="note">Это демо-форма. Отправка не работает.</p>
+      </form>
+    </div>
+
+    <div class="info-box">
+      <h3>Контактная информация</h3>
+
+      <p><strong>Адрес:</strong><br>
+      ул. Бокомбаева, 123<br>
+      Бишкек, Кыргызстан, 123456</p>
+
+      <p><strong>Email:</strong><br>
+      info@gorillaenergy.kg</p>
+
+      <p><strong>Телефон:</strong><br>
+      +996 700 000 111<br>
+      +996 777 041 100</p>
+
+      <div class="social-icons">
+        <h4>Мы в соцсетях</h4>
+        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="Facebook">📘</a>
+        <a href="#" title="YouTube">▶️</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><span class="logo">GORILLA</span> ENERGY</p>
+    <p>© 2025 GORILLA Energy. Все права защищены.</p>
+    <p>Чрезмерное потребление энергетических напитков может негативно сказаться на здоровье.</p>
+  </div>
+</section>
+
+</body>
+</html>
